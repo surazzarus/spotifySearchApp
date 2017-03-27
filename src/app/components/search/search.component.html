@@ -1,0 +1,26 @@
+<h1>Need Music?</h1>
+<p class="lead">Use this Spotify App to browse new releases and find your favourite song.</p>
+
+<form class="" action="index.html" method="post">
+  <div class="form-group">
+    <input type="text" name="searchStr" (keyup)="searchMusic()" [(ngModel)]="searchStr" class="form-control" placeholder="Search Music">
+  </div>
+</form>
+
+<div *ngIf="searchResult">
+  <div *ngFor="let result of searchResult">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="searchResult well">
+          <h4><a routerLink="/artist/{{result.id}}">{{result.name}}</a></h4>
+          <div>
+            <strong>Genres: </strong>
+            <span *ngFor="let genre of result.genres">
+              {{genre}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
